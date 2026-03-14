@@ -1,0 +1,9 @@
+views:
+  - type: sections
+    sections:
+      - type: grid
+        cards:
+          - type: tile
+            entity: valve.sprays_side_door_to_front_walk
+            vertical: false
+            features_position: bottom
