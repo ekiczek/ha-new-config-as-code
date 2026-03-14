@@ -33,7 +33,7 @@ install_and_start_addon() {
 
     echo "Current state: $state" >> "$LOG"
 
-    if [ "$state" = "stopped" ] || [ "$state" = "started" ]; then
+    if [ "$state" = "stopped" ] || [ "$state" = "started" ] || [ "$state" = "unknown" ]; then
       break
     fi
 
