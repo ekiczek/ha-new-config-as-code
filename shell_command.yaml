@@ -1,2 +1,1 @@
-shell_command:
-  install_addons: "bash /config/scripts/install_addons.sh"
+install_addons: "bash /config/scripts/install_addons.sh"
