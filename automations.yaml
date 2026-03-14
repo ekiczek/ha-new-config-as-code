@@ -1,0 +1,17 @@
+- id: "bootstrap_install_addons"
+  alias: "Bootstrap - Install Add-ons on First Boot"
+  trigger:
+    - platform: homeassistant
+      event: start
+  condition:
+    - condition: template
+      value_template: "{{ not states('persistent_notification.bootstrap') == 'notified' }}"
+  action:
+    - delay: "00:00:30"  # Give Supervisor time to be fully ready
+    - service: shell_command.install_addons
+    - service: persistent_notification.create
+      data:
+        title: "Bootstrap Complete"
+        message: "Add-on installation has completed."
+        notification_id: "bootstrap"
+  mode: single
