@@ -50,7 +50,13 @@ install_and_start_addon() {
   echo "Done with: $addon_slug" >> "$LOG"
 }
 
-install_and_start_addon "a0d7b954_vscode"
+install_and_start_addon "a0d7b954_vscode" &
+install_and_start_addon "core_whisper" &
+install_and_start_addon "core_piper" &
+install_and_start_addon "core_openwakeword" &
+
+# Wait for all background installs to complete
+wait
 
 touch "$FLAG_FILE"
 echo "=== All done at $(date) ===" >> "$LOG"
